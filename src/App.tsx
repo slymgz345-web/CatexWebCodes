@@ -86,11 +86,11 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* Sağ Bento Kartları */}
+          {/* Sağ Bento Kartları - ORANTILI GÖRSEL GÜNCELLEMESİ */}
           <div className="lg:col-span-5 grid grid-rows-2 gap-6">
             
             {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
-            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all flex flex-col justify-between">
+            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all flex flex-col">
                <div>
                  <span className="label-mono text-[10px] text-slate-500 block mb-4 uppercase tracking-widest">Hizmet Durumu</span>
                  <div className="flex items-center gap-3 mb-4">
@@ -99,31 +99,31 @@ export default function App() {
                  </div>
                </div>
 
-               {/* Resim Alanı - web.png olarak güncellendi */}
-               <div className="w-full h-36 rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5">
+               {/* Resim Alanı - object-contain ve flex-1 ile tam orantılı sığdırma */}
+               <div className="w-full flex-1 rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5 flex items-center justify-center p-2">
                  <img 
                    src="/web.png" 
                    alt="Web Tasarım" 
-                   className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                   className="max-w-full max-h-full object-contain opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                  />
                </div>
 
-               <p className="text-slate-500 text-[10px] font-mono uppercase tracking-[0.3em]">Modern Mimari: Active</p>
+               <p className="text-slate-500 text-[10px] font-mono uppercase tracking-[0.3em] mt-auto">Modern Mimari: Active</p>
             </div>
 
             {/* 2. KART: ESTETİK TASARIM */}
-            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col justify-between group hover:bg-white/[0.04] transition-all">
+            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col group hover:bg-white/[0.04] transition-all">
               <div>
                 <h3 className="font-bold text-xl uppercase mb-2 group-hover:text-cyan-400 transition-colors">Estetik Tasarım</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
               </div>
 
-              {/* Resim Alanı - estetiktasarım.png */}
-              <div className="w-full h-36 rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5">
+              {/* Resim Alanı - object-contain ve flex-1 ile tam orantılı sığdırma */}
+              <div className="w-full flex-1 rounded-xl overflow-hidden bg-white/5 border border-white/5 flex items-center justify-center p-2">
                 <img 
                   src="/estetiktasarım.png" 
                   alt="Estetik Tasarım" 
-                  className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  className="max-w-full max-h-full object-contain opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 />
               </div>
             </div>
@@ -148,7 +148,7 @@ export default function App() {
   );
 }
 
-// --- ALT BİLEŞENLER ---
+// --- ALT BİLEŞENLER (HELPERS) ---
 function ApproachSection() {
   return (
     <section id="yaklaşimim" className="container mx-auto px-6 py-20 border-t border-white/5">
