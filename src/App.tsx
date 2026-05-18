@@ -73,7 +73,8 @@ export default function App() {
 
             {/* Üst Kısım: Başlık ve Detaylar */}
             <div className="relative z-10 space-y-4">
-              <span className="label-mono text-cyan-400 text-xs block tracking-[0.3em] uppercase font-bold">MODERN WEB TASARIMCISI & STRATEJİST</span>
+              {/* Bir kademe büyütüldü: text-sm yapıldı */}
+              <span className="label-mono text-cyan-400 text-sm block tracking-[0.32em] uppercase font-bold">MODERN WEB TASARIMCISI & STRATEJİST</span>
               <h1 className="text-4xl md:text-6xl font-black uppercase leading-[0.95] tracking-tighter">
                 HIZLI, MODERN <br /> VE <span className="text-gradient">ETKİLEYİCİ</span> <br /> WEB SİTELERİ.
               </h1>
@@ -114,7 +115,8 @@ export default function App() {
             {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
             <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all flex flex-col justify-between">
                <div>
-                 <span className="label-mono text-[10px] text-slate-500 block mb-4 uppercase tracking-widest text-white/50">Hizmet Durumu</span>
+                 {/* Bir kademe büyütüldü: text-xs yapıldı */}
+                 <span className="label-mono text-xs text-slate-500 block mb-4 uppercase tracking-widest text-white/50">Hizmet Durumu</span>
                  <div className="flex items-center gap-3">
                    <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
                    <h3 className="font-bold text-xl uppercase tracking-tight">Web Tasarım & Geliştirme</h3>
@@ -136,7 +138,7 @@ export default function App() {
             <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col justify-between group hover:bg-white/[0.04] transition-all duration-500">
               <div>
                 <h3 className="font-bold text-xl uppercase mb-2 group-hover:text-cyan-400 transition-colors">Estetik Tasarım</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi og görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
+                <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
               </div>
 
               <div className="w-full aspect-[16/10] rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5">
@@ -176,7 +178,8 @@ function ApproachSection() {
         
         <div className="lg:col-span-5 flex flex-col">
           <div>
-            <span className="label-mono text-slate-500 text-[10px] tracking-[0.4em] mb-4 block uppercase font-bold text-white/40">ÇALIŞMA METODOLOJİM</span>
+            {/* Bir kademe büyütüldü: text-xs yapıldı ve tracking dengelendi */}
+            <span className="label-mono text-slate-500 text-xs tracking-[0.42em] mb-4 block uppercase font-bold text-white/40">ÇALIŞMA METODOLOJİM</span>
             <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8">
               PROFESYONEL <br /><span className="text-gradient">STANDARTLAR</span>.
             </h2>
@@ -209,7 +212,8 @@ function ExpertiseSection() {
     <section id="hizmetler" className="container mx-auto px-6 py-20 border-t border-white/5">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-5">
-          <span className="label-mono text-slate-500 text-[10px] tracking-[0.3em] mb-4 block uppercase font-black opacity-40 text-white">UZMANLIK HİZMETLERİ</span>
+          {/* Bir kademe büyütüldü: text-xs yapıldı */}
+          <span className="label-mono text-slate-500 text-xs tracking-[0.35em] mb-4 block uppercase font-black opacity-40 text-white">UZMANLIK HİZMETLERİ</span>
           <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8">YÜKSEK- <br />PERFORMANS <br /><span className="text-gradient">ÇÖZÜMLERİ</span>.</h2>
           <div className="flex gap-4">
             {[Layout, Search, ShieldCheck].map((Icon, i) => (
@@ -233,8 +237,8 @@ function ContactSection() {
       <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl shadow-cyan-950/10">
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div>
-            {/* block eklendi, böylece mb-6 margin değeri çalışacak ve İ harfinden yukarıya güvenli bir mesafeye kaçacak */}
-            <span className="label-mono text-slate-500 mb-6 block uppercase tracking-[0.5em] text-[10px] font-black">İletişime Geçin</span>
+            {/* Bir kademe büyütüldü: text-xs yapıldı ve block komutu ile yapışma engellendi */}
+            <span className="label-mono text-slate-500 mb-6 block uppercase tracking-[0.5em] text-xs font-black">İletişime Geçin</span>
             <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-none">SİSTEME <br /><span className="text-gradient">KATILIN</span>.</h2>
             <p className="text-slate-400 text-lg max-w-sm font-light leading-relaxed">Projelerinizi siber disiplinle inşa etmek için terminalin başındayım.</p>
           </div>
@@ -261,6 +265,7 @@ function MethodCard({ icon, title, desc }: any) {
   );
 }
 
+// --- SERVİCE ROW ---
 function ServiceRow({ icon, title, desc }: any) {
   return (
     <motion.div whileHover={{ x: 10 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex items-start gap-8 group hover:bg-white/[0.04] transition-all cursor-default">
