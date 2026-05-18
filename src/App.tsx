@@ -80,9 +80,12 @@ export default function App() {
               <p className="text-slate-400 max-w-md text-base md:text-lg leading-relaxed font-light">
                 İşletmenizi dijital dünyada öne çıkaran, siber disiplinle inşa edilmiş yüksek performanslı çözümler.
               </p>
+              
+              {/* Tek Buton Mimarisi - Sadece "Başlayalım" odak noktası yapıldı */}
               <div className="flex gap-4 pt-2">
-                <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition-all uppercase text-xs tracking-widest">Hizmetlerim</button>
-                <button className="bg-white/5 border border-white/10 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all uppercase text-xs tracking-widest text-white font-mono">Hemen Başla</button>
+                <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition-all uppercase text-xs tracking-widest shadow-xl shadow-black/10">
+                  Başlayalım
+                </button>
               </div>
             </div>
             
@@ -168,7 +171,7 @@ export default function App() {
   );
 }
 
-// --- ALT BİLEŞENLER (AÇIKLAMALAR VE BAŞLIKLAR GÜCELLENDİ) ---
+// --- ALT BİLEŞENLER ---
 function ApproachSection() {
   return (
     <section id="yaklaşimim" className="container mx-auto px-6 py-20 border-t border-white/5">
@@ -187,8 +190,7 @@ function ApproachSection() {
               <ShieldAlert size={28} />
             </div>
             <h3 className="text-2xl font-bold uppercase mb-4 tracking-tight">KALİTELİ ÇÖZÜMLER</h3>
-            {/* Sol açıklama yazısı text-sm'den text-base'e yükseltildi */}
-            <p className="text-slate-400 text-base leading-relaxed font-light">
+            <p className="text-slate-400 text-sm leading-relaxed font-light">
               Yüksek performanslı sistemleri, 'Security-by-Design' prensibiyle en gelişmiş dijital zırhlara kavuşturuyoruz.
             </p>
           </motion.div>
@@ -205,6 +207,7 @@ function ApproachSection() {
   );
 }
 
+// --- EXPERTİSE SECTİON ---
 function ExpertiseSection() {
   return (
     <section id="hizmetler" className="container mx-auto px-6 py-20 border-t border-white/5">
@@ -228,6 +231,7 @@ function ExpertiseSection() {
   );
 }
 
+// --- CONTACT SECTİON ---
 function ContactSection() {
   return (
     <section id="contact" className="container mx-auto px-6 py-24 border-t border-white/5">
@@ -252,30 +256,26 @@ function ContactSection() {
   );
 }
 
-// --- METHOD CARD (BAŞLIK TEXT-XL, AÇIKLAMA TEXT-BASE SEVİYESİNE ÇEKİLDİ) ---
+// --- METHOD CARD ---
 function MethodCard({ icon, title, desc }: any) {
   return (
     <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col md:flex-row md:items-center gap-8 group hover:bg-white/[0.04] transition-all flex-1">
       <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform shrink-0">{icon}</div>
       <div>
-        {/* Başlık text-xl yapıldı */}
         <h4 className="text-xl font-bold uppercase mb-2 tracking-widest">{title}</h4>
-        {/* Açıklama text-base yapıldı */}
         <p className="text-slate-500 text-base font-light">{desc}</p>
       </div>
     </motion.div>
   );
 }
 
-// --- SERVİCE ROW (UYUM İÇİN AYNI ORANDA OPTİMİZE EDİLDİ) ---
+// --- SERVİCE ROW ---
 function ServiceRow({ icon, title, desc }: any) {
   return (
     <motion.div whileHover={{ x: 10 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex items-start gap-8 group hover:bg-white/[0.04] transition-all cursor-default">
       <div className="w-14 h-14 bg-cyan-400/10 rounded-xl flex items-center justify-center text-cyan-400 group-hover:bg-cyan-400 group-hover:text-black transition-all duration-500">{icon}</div>
       <div>
-        {/* Başlık text-xl yapıldı */}
         <h4 className="text-xl font-bold uppercase mb-2 group-hover:text-cyan-400 transition-colors">{title}</h4>
-        {/* Açıklama text-base yapıldı */}
         <p className="text-slate-500 text-base leading-relaxed max-w-md font-light">{desc}</p>
       </div>
     </motion.div>
