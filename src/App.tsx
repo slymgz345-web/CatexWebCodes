@@ -62,38 +62,37 @@ export default function App() {
       <section id="başlangiç" className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
-          {/* Sol Büyük Kart - justify-between ile o koca boşluk harika bir düzene oturtuldu */}
+          {/* Sol Büyük Kart - justify-center yapılarak dikeyde harika bir denge kuruldu */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-7 bg-white/[0.02] border border-white/10 rounded-[2rem] p-10 flex flex-col justify-between min-h-[500px] relative overflow-hidden group"
+            className="lg:col-span-7 bg-white/[0.02] border border-white/10 rounded-[2rem] p-10 md:p-14 flex flex-col justify-center min-h-[550px] relative overflow-hidden group"
           >
-            <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity">
+            <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
               <Layout size={350} strokeWidth={0.5} />
             </div>
             
-            {/* Üst Kısım: Rozet en tepede sabit */}
-            <div className="relative z-10">
+            {/* Tüm İçerik space-y-6 ile Tek Blok Halinde Ortalandı */}
+            <div className="relative z-10 space-y-6">
               <span className="label-mono text-cyan-400 text-xs block tracking-[0.3em] uppercase font-bold">MODERN WEB TASARIMCISI & STRATEJİST</span>
-            </div>
-            
-            {/* Alt Kısım: Başlık ve butonlar tabana dengeli oturtuldu */}
-            <div className="relative z-10 mt-12">
-              <h1 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8 shadow-lg shadow-black/20">
+              
+              <h1 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter shadow-lg shadow-black/20">
                 HIZLI, MODERN <br /> VE <span className="text-gradient">ETKİLEYİCİ</span> <br /> WEB SİTELERİ.
               </h1>
-              <p className="text-slate-400 max-w-md text-lg leading-relaxed mb-10 font-light">
+              
+              <p className="text-slate-400 max-w-md text-lg leading-relaxed font-light">
                 İşletmenizi dijital dünyada öne çıkaran, siber disiplinle inşa edilmiş yüksek performanslı çözümler.
               </p>
-              <div className="flex gap-4">
+              
+              <div className="flex gap-4 pt-2">
                 <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition-all uppercase text-xs tracking-widest">Hizmetlerim</button>
                 <button className="bg-white/5 border border-white/10 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all uppercase text-xs tracking-widest text-white font-mono">Hemen Başla</button>
               </div>
             </div>
           </motion.div>
 
-          {/* Sağ Bento Kartları - Görsellerin Tam Orantılı Sığdığı Bölüm */}
+          {/* Sağ Bento Kartları - Resimlerin Tam Orantılı Sığdığı Bölüm */}
           <div className="lg:col-span-5 grid grid-rows-2 gap-6">
             
             {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
@@ -155,7 +154,7 @@ export default function App() {
   );
 }
 
-// --- ALT BİLEŞENLER ---
+// --- ALT BİLEŞENLER (EKSİKSİZ VE TAM) ---
 
 function ApproachSection() {
   return (
