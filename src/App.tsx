@@ -4,13 +4,13 @@ import {
   ShieldAlert, Network, Cpu, Send 
 } from 'lucide-react';
 
-// --- NAVBAR: SÜPER ZOOM LOGO VE DENGELİ TASARIM ---
+// --- NAVBAR ---
 function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#050608]/85 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-6 h-24 flex justify-between items-center">
         
-        {/* LOGO BÖLÜMÜ - Süper Zoom Aktif */}
+        {/* LOGO BÖLÜMÜ */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -22,7 +22,6 @@ function Navbar() {
               alt="EsasWeb Logo" 
               className="h-full w-auto object-contain scale-[3.2] origin-left transition-transform duration-500 group-hover:scale-[3.5]"
             />
-            {/* Logo arkasındaki siber aura */}
             <div className="absolute -inset-10 bg-cyan-400 blur-[60px] opacity-10 group-hover:opacity-30 transition-opacity pointer-events-none" />
           </div>
         </motion.div>
@@ -87,7 +86,7 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* Sağ Bento Kartları - Görsel Entegrasyonlu Yeni Sürüm */}
+          {/* Sağ Bento Kartları */}
           <div className="lg:col-span-5 grid grid-rows-2 gap-6">
             
             {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
@@ -100,10 +99,10 @@ export default function App() {
                  </div>
                </div>
 
-               {/* Resim Alanı */}
+               {/* Resim Alanı - webtasarım.png */}
                <div className="w-full h-36 rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5">
                  <img 
-                   src="/web-tasarim.png" 
+                   src="/webtasarım.png" 
                    alt="Web Tasarım" 
                    className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                  />
@@ -119,10 +118,10 @@ export default function App() {
                 <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
               </div>
 
-              {/* Resim Alanı */}
+              {/* Resim Alanı - estetiktasarım.png */}
               <div className="w-full h-36 rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5">
                 <img 
-                  src="/estetik-tarz.png" 
+                  src="/estetiktasarım.png" 
                   alt="Estetik Tasarım" 
                   className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 />
@@ -150,7 +149,6 @@ export default function App() {
 }
 
 // --- ALT BİLEŞENLER ---
-
 function ApproachSection() {
   return (
     <section id="yaklaşimim" className="container mx-auto px-6 py-20 border-t border-white/5">
@@ -162,7 +160,6 @@ function ApproachSection() {
               PROFESYONEL <br /><span className="text-gradient">STANDARTLAR</span>.
             </h2>
           </div>
-          
           <motion.div whileHover={{ y: -5 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-12">
             <div className="w-14 h-14 bg-cyan-400/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-8">
               <ShieldAlert size={28} />
@@ -173,7 +170,6 @@ function ApproachSection() {
             </p>
           </motion.div>
         </div>
-        
         <div className="lg:col-span-7 space-y-6">
           <MethodCard icon={<Network size={24} />} title="HIZ VE PERFORMANS" desc="Global erişime sahip, ışık hızında açılan siber yapılar." />
           <MethodCard icon={<ShieldCheck size={24} />} title="KALİTE GARANTİSİ" desc="Hatasız kod yapısı ve modern tasarımın milimetrik uyumu." />
