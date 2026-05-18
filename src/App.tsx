@@ -256,7 +256,7 @@ function ContactSection({ nameInputRef }: any) {
     const formData = new FormData(e.currentTarget);
     
     // 🔑 Güvenli Veri Hattı Anahtarı başarıyla tanımlandı
-    formData.append("access_key", "eddbd09a-8a2b-4b79-8c27-c8426f9a6bdc");
+    formData.append("access_key", "8f40230d-ff4d-4527-9be7-902bbd100c49");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
