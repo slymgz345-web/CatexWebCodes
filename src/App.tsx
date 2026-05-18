@@ -10,7 +10,7 @@ function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#050608]/85 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-6 h-24 flex justify-between items-center">
         
-        {/* LOGO BÖLÜMÜ - "Süper Zoom" Modu Devrede */}
+        {/* LOGO BÖLÜMÜ - Süper Zoom Aktif */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -95,7 +95,7 @@ export default function App() {
                  <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
                  <h3 className="font-bold text-xl uppercase tracking-tight">Web Tasarım & Geliştirme</h3>
                </div>
-               <p className="text-slate-500 text-[10px] mt-2 font-mono uppercase tracking-[0.3em]">Modern Mimari: Aktif</p>
+               <p className="text-slate-500 text-[10px] mt-2 font-mono uppercase tracking-[0.3em]">Modern Mimari: Active</p>
                <div className="mt-8 opacity-[0.03] select-none pointer-events-none">
                  <span className="text-8xl font-black uppercase tracking-tighter">KALİTE</span>
                </div>
@@ -137,16 +137,19 @@ function ApproachSection() {
               PROFESYONEL <br /><span className="text-gradient">STANDARTLAR</span>.
             </h2>
           </div>
+          
+          {/* Yeni Seçilen Motto Buraya Entegre Edildi */}
           <motion.div whileHover={{ y: -5 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-12">
             <div className="w-14 h-14 bg-cyan-400/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-8">
               <ShieldAlert size={28} />
             </div>
             <h3 className="text-2xl font-bold uppercase mb-4 tracking-tight">KALİTELİ ÇÖZÜMLER</h3>
-            <p className="text-slate-400 text-sm leading-relaxed font-light italic">
-              Security-by-Design' prensibiyle en gelişmiş dijital zırhlara kavuşturuyoruz.
+            <p className="text-slate-400 text-sm leading-relaxed font-light">
+              Yüksek performanslı sistemleri, 'Security-by-Design' prensibiyle en gelişmiş dijital zırhlara kavuşturuyoruz.
             </p>
           </motion.div>
         </div>
+        
         <div className="lg:col-span-7 space-y-6">
           <MethodCard icon={<Network size={24} />} title="HIZ VE PERFORMANS" desc="Global erişime sahip, ışık hızında açılan siber yapılar." />
           <MethodCard icon={<ShieldCheck size={24} />} title="KALİTE GARANTİSİ" desc="Hatasız kod yapısı ve modern tasarımın milimetrik uyumu." />
@@ -183,7 +186,7 @@ function ExpertiseSection() {
 function ContactSection() {
   return (
     <section id="contact" className="container mx-auto px-6 py-24 border-t border-white/5">
-        <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-20 relative overflow-hidden">
+        <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div>
               <h3 className="label-mono text-slate-500 mb-6 uppercase tracking-[0.4em] text-[10px] font-black">İletişime Geçin</h3>
