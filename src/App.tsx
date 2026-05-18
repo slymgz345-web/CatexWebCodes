@@ -11,7 +11,7 @@ function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#050608]/85 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-6 h-24 flex justify-between items-center">
         
-        {/* LOGO BÖLÜMÜ - CatexWeb Entegrasyonu */}
+        {/* LOGO BÖLÜMÜ */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -104,7 +104,7 @@ export default function App() {
               </div>
             </div>
             
-            {/* Alt Kısım: Terminal Paneli - CatexWeb Çıktıları Entegre Edildi */}
+            {/* Alt Kısım: Terminal Paneli */}
             <div className="relative z-10 w-full bg-black/40 border border-white/5 rounded-xl font-mono text-xs text-slate-400 p-5 shadow-2xl backdrop-blur-md space-y-3 border-l-2 border-l-cyan-500/50">
               <div className="flex items-center justify-between border-b border-white/5 pb-2">
                 <div className="flex gap-1.5">
@@ -179,7 +179,6 @@ export default function App() {
       {/* 4. BÖLÜM: İLETİŞİM FORMU */}
       <ContactSection nameInputRef={nameInputRef} />
 
-      {/* Footer Güncellendi */}
       <footer className="py-12 text-center text-slate-700 text-[9px] font-mono uppercase tracking-[0.8em] opacity-50">
         © 2026 CATEXWEB // SİBER GÜVENLİK VE MODERN WEB MİMARİSİ
       </footer>
@@ -246,6 +245,7 @@ function ExpertiseSection() {
   );
 }
 
+// --- İLETİŞİM FORMU (VERİ HATTININ BAĞLANDIĞI NİHAİ BÖLÜM) ---
 function ContactSection({ nameInputRef }: any) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
@@ -255,8 +255,8 @@ function ContactSection({ nameInputRef }: any) {
 
     const formData = new FormData(e.currentTarget);
     
-    // ⚠️ web3forms Access Key buraya eklenecek
-    formData.append("access_key", "BURAYA_WEB3FORMS_KEYİNİ_YAZ");
+    // 🔑 Güvenli Veri Hattı Anahtarı başarıyla tanımlandı
+    formData.append("access_key", "eddbd09a-8a2b-4b79-8c27-c8426f9a6bdc");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -268,7 +268,7 @@ function ContactSection({ nameInputRef }: any) {
 
       if (data.success) {
         setStatus('success');
-        e.currentTarget.reset();
+        e.currentTarget.reset(); // Sinyal başarıyla ulaştığında formu temizle
       } else {
         setStatus('error');
       }
@@ -348,7 +348,6 @@ function MethodCard({ icon, title, desc }: any) {
   );
 }
 
-// --- SERVİCE ROW ---
 function ServiceRow({ icon, title, desc }: any) {
   return (
     <motion.div whileHover={{ x: 10 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex items-start gap-8 group hover:bg-white/[0.04] transition-all cursor-default">
