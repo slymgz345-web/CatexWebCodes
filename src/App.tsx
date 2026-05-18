@@ -4,26 +4,24 @@ import {
   ShieldAlert, Network, Cpu, Send 
 } from 'lucide-react';
 
-// --- NAVBAR & LOGO ZIRHLI UYUM ---
+// --- NAVBAR ---
 function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#050608]/85 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-6 h-28 flex justify-between items-center">
         
-        {/* LOGO BÖLÜMÜ - HIZALANMIŞ VE BÜYÜTÜLMÜŞ */}
+        {/* LOGO BÖLÜMÜ - Süper Zoom Aktif */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           className="flex items-center gap-3 group cursor-pointer"
         >
-          {/* Logo Konteynırı -Overflow visible, scaleorigin-left */}
-          <div className="relative h-16 w-60 flex items-center justify-start overflow-visible">
+          <div className="relative h-12 w-48 flex items-center justify-start overflow-visible">
             <img 
               src="/logo.png" 
               alt="EsasWeb Logo" 
-              className="h-full w-auto object-contain scale-[3] origin-left transition-transform duration-500 group-hover:scale-[3.3]"
+              className="h-full w-auto object-contain scale-[3.2] origin-left transition-transform duration-500 group-hover:scale-[3.5]"
             />
-            {/* Logo arkasındaki siber aura */}
             <div className="absolute -inset-10 bg-cyan-400 blur-[80px] opacity-10 group-hover:opacity-30 transition-opacity pointer-events-none" />
           </div>
         </motion.div>
@@ -53,7 +51,7 @@ function Navbar() {
   );
 }
 
-// --- ANA APP BİLEŞENİ (PATRON) ---
+// --- ANA APP BİLEŞENİ ---
 export default function App() {
   return (
     <main className="min-h-screen bg-[#050608] text-white selection:bg-cyan-500/30 font-sans overflow-x-hidden pt-28">
@@ -63,7 +61,7 @@ export default function App() {
       <section id="başlangiç" className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
-          {/* Sol Büyük Kart: Vizyon */}
+          {/* Sol Büyük Kart */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -88,22 +86,46 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* Sağ Kolon Kartları */}
+          {/* Sağ Kolon Kartları - ORANTILI GÖRSEL GÜNCELLEMESİ */}
           <div className="lg:col-span-5 grid grid-rows-2 gap-6">
-            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative overflow-hidden">
-               <span className="label-mono text-[10px] text-slate-500 block mb-6 uppercase tracking-widest text-white/50">Hizmet Durumu</span>
-               <div className="flex items-center gap-3">
-                 <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
-                 <h3 className="font-bold text-xl uppercase tracking-tight">Web Tasarım & Geliştirme</h3>
+            
+            {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
+            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all flex flex-col justify-between">
+               <div>
+                 <span className="label-mono text-[10px] text-slate-500 block mb-6 uppercase tracking-widest text-white/50">Hizmet Durumu</span>
+                 <div className="flex items-center gap-3">
+                   <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
+                   <h3 className="font-bold text-xl uppercase tracking-tight">Web Tasarım & Geliştirme</h3>
+                 </div>
                </div>
-               <p className="text-slate-500 text-[10px] mt-2 font-mono uppercase tracking-[0.3em]">Modern Mimari: Aktif</p>
-               <div className="mt-10 opacity-[0.03] select-none pointer-events-none">
-                 <span className="text-9xl font-black uppercase tracking-tighter">KALİTE</span>
+
+               {/* Resim Alanı - web.png ve contain orantısı */}
+               <div className="w-full flex-1 rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5 flex items-center justify-center p-2">
+                 <img 
+                   src="/web.png" 
+                   alt="Web Tasarım" 
+                   className="max-w-full max-h-full object-contain opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                 />
                </div>
+
+               <p className="text-slate-500 text-[10px] mt-2 font-mono uppercase tracking-[0.3em]">Modern Mimari: Active</p>
             </div>
+
+            {/* 2. KART: ESTETİK TASARIM */}
             <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col justify-end group hover:bg-white/[0.04] transition-all duration-500">
-              <h3 className="font-bold text-xl uppercase mb-2 group-hover:text-cyan-400 transition-colors">Estetik Tasarım</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
+              <div>
+                <h3 className="font-bold text-xl uppercase mb-2 group-hover:text-cyan-400 transition-colors">Estetik Tasarım</h3>
+                <p className="text-slate-400 text-sm leading-relaxed mb-4">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
+              </div>
+
+              {/* Resim Alanı - estetiktasarım.png ve contain orantısı */}
+              <div className="w-full flex-1 rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5 flex items-center justify-center p-2">
+                <img 
+                  src="/estetiktasarım.png" 
+                  alt="Estetik Tasarım" 
+                  className="max-w-full max-h-full object-contain opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -116,11 +138,11 @@ export default function App() {
       <ExpertiseSection />
 
       {/* 4. BÖLÜM: İLETİŞİM FORMU */}
-      <section id="contact" className="container mx-auto px-6 py-32 border-t border-white/5">
-        <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-24 relative overflow-hidden shadow-2xl shadow-cyan-950/10">
+      <section id="contact" className="container mx-auto px-6 py-24 border-t border-white/5">
+        <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl">
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div>
-              <h3 className="label-mono text-slate-500 mb-6 uppercase tracking-[0.5em] text-[10px] font-black">İletişime Geçin</h3>
+              <h3 className="label-mono text-slate-500 mb-6 uppercase tracking-[0.4em] text-[10px] font-black">İletişime Geçin</h3>
               <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-none">SİSTEME <br /><span className="text-gradient">KATILIN</span>.</h2>
               <p className="text-slate-400 text-lg max-w-sm font-light leading-relaxed">Projelerinizi siber disiplinle inşa etmek için terminalin başındayım.</p>
             </div>
@@ -137,22 +159,21 @@ export default function App() {
       </section>
 
       <footer className="py-12 text-center text-slate-700 text-[10px] font-mono uppercase tracking-[0.8em] opacity-40">
-        © 2026 ESASWEB // SİBER GÜVENLİK VE MODERN WEB
+        © 2026 ESASWEB // SİBER GÜVENLİK VE MODERN WEB MİMARİSİ
       </footer>
 
     </main>
   );
 }
 
-// --- ALT BİLEŞENLER (HELPERS) ---
-
+// --- ALT BİLEŞENLER ---
 function ApproachSection() {
   return (
     <section id="yaklaşimim" className="container mx-auto px-6 py-20 border-t border-white/5">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
         <div className="lg:col-span-5 space-y-12">
           <div>
-            <span className="label-mono text-slate-500 text-[10px] tracking-[0.4em] mb-4 block uppercase font-bold text-white/40">ÇALIŞMA METODOLOJİM</span>
+            <span className="label-mono text-slate-500 text-[10px] tracking-[0.3em] mb-4 block uppercase font-bold text-white/40">ÇALIŞMA METODOLOJİM</span>
             <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter">
               PROFESYONEL <br /><span className="text-gradient">STANDARTLAR</span>.
             </h2>
