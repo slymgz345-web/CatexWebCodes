@@ -4,7 +4,7 @@ import {
   ShieldAlert, Network, Cpu, Send 
 } from 'lucide-react';
 
-// --- NAVBAR: LOGO ZOOM VE DENGELİ TASARIM ---
+// --- NAVBAR: SÜPER ZOOM LOGO VE DENGELİ TASARIM ---
 function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#050608]/85 backdrop-blur-xl border-b border-white/5">
@@ -87,23 +87,48 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* Sağ Bento Kartları */}
+          {/* Sağ Bento Kartları - Görsel Entegrasyonlu Yeni Sürüm */}
           <div className="lg:col-span-5 grid grid-rows-2 gap-6">
-            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative overflow-hidden">
-               <span className="label-mono text-[10px] text-slate-500 block mb-6 uppercase tracking-widest">Hizmet Durumu</span>
-               <div className="flex items-center gap-3">
-                 <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
-                 <h3 className="font-bold text-xl uppercase tracking-tight">Web Tasarım & Geliştirme</h3>
+            
+            {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
+            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all flex flex-col justify-between">
+               <div>
+                 <span className="label-mono text-[10px] text-slate-500 block mb-4 uppercase tracking-widest">Hizmet Durumu</span>
+                 <div className="flex items-center gap-3 mb-4">
+                   <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
+                   <h3 className="font-bold text-xl uppercase tracking-tight">Web Tasarım & Geliştirme</h3>
+                 </div>
                </div>
-               <p className="text-slate-500 text-[10px] mt-2 font-mono uppercase tracking-[0.3em]">Modern Mimari: Active</p>
-               <div className="mt-8 opacity-[0.03] select-none pointer-events-none">
-                 <span className="text-8xl font-black uppercase tracking-tighter">KALİTE</span>
+
+               {/* Resim Alanı */}
+               <div className="w-full h-36 rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5">
+                 <img 
+                   src="/web-tasarim.png" 
+                   alt="Web Tasarım" 
+                   className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                 />
                </div>
+
+               <p className="text-slate-500 text-[10px] font-mono uppercase tracking-[0.3em]">Modern Mimari: Active</p>
             </div>
-            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col justify-end group hover:bg-white/[0.04] transition-all">
-              <h3 className="font-bold text-xl uppercase mb-2 group-hover:text-cyan-400 transition-colors">Estetik Tasarım</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
+
+            {/* 2. KART: ESTETİK TASARIM */}
+            <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col justify-between group hover:bg-white/[0.04] transition-all">
+              <div>
+                <h3 className="font-bold text-xl uppercase mb-2 group-hover:text-cyan-400 transition-colors">Estetik Tasarım</h3>
+                <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
+              </div>
+
+              {/* Resim Alanı */}
+              <div className="w-full h-36 rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5">
+                <img 
+                  src="/estetik-tarz.png" 
+                  alt="Estetik Tasarım" 
+                  className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                />
+              </div>
             </div>
+
           </div>
         </div>
       </section>
@@ -138,7 +163,6 @@ function ApproachSection() {
             </h2>
           </div>
           
-          {/* Yeni Seçilen Motto Buraya Entegre Edildi */}
           <motion.div whileHover={{ y: -5 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-12">
             <div className="w-14 h-14 bg-cyan-400/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-8">
               <ShieldAlert size={28} />
