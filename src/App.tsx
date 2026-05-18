@@ -58,27 +58,33 @@ export default function App() {
     <main className="min-h-screen bg-[#050608] text-white selection:bg-cyan-500/30 font-sans overflow-x-hidden pt-24">
       <Navbar />
 
-      {/* 1. BÖLÜM: HERO & BENTO GRID - Üst boşluk pt-6 ile tamamen kapatıldı */}
-      <section id="başlangiç" className="container mx-auto px-6 pt-6 pb-16 md:pb-20">
+      {/* 1. BÖLÜM: HERO & BENTO GRID */}
+      <section id="başlangiç" className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
-          {/* Sol Büyük Kart: Başlık ve Açıklama */}
+          {/* Sol Büyük Kart - justify-between ile o koca boşluk harika bir düzene oturtuldu */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-7 bg-white/[0.02] border border-white/10 rounded-[2rem] p-10 flex flex-col justify-end min-h-[500px] relative overflow-hidden group"
+            className="lg:col-span-7 bg-white/[0.02] border border-white/10 rounded-[2rem] p-10 flex flex-col justify-between min-h-[500px] relative overflow-hidden group"
           >
             <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity">
               <Layout size={350} strokeWidth={0.5} />
             </div>
+            
+            {/* Üst Kısım: Rozet en tepede sabit */}
             <div className="relative z-10">
-              <span className="label-mono text-cyan-400 text-xs mb-4 block tracking-[0.3em] uppercase font-bold">MODERN WEB TASARIMCISI & STRATEJİST</span>
+              <span className="label-mono text-cyan-400 text-xs block tracking-[0.3em] uppercase font-bold">MODERN WEB TASARIMCISI & STRATEJİST</span>
+            </div>
+            
+            {/* Alt Kısım: Başlık ve butonlar tabana dengeli oturtuldu */}
+            <div className="relative z-10 mt-12">
               <h1 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8 shadow-lg shadow-black/20">
                 HIZLI, MODERN <br /> VE <span className="text-gradient">ETKİLEYİCİ</span> <br /> WEB SİTELERİ.
               </h1>
               <p className="text-slate-400 max-w-md text-lg leading-relaxed mb-10 font-light">
-                İşletmenizi dijital dünyada öne çıkaran, siber disiplinle inşa edilmiş yüksek performanslı solutions.
+                İşletmenizi dijital dünyada öne çıkaran, siber disiplinle inşa edilmiş yüksek performanslı çözümler.
               </p>
               <div className="flex gap-4">
                 <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition-all uppercase text-xs tracking-widest">Hizmetlerim</button>
@@ -87,7 +93,7 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* Sağ Bento Kartları - Resimlerin Tam Orantılı Sığdığı Bölüm */}
+          {/* Sağ Bento Kartları - Görsellerin Tam Orantılı Sığdığı Bölüm */}
           <div className="lg:col-span-5 grid grid-rows-2 gap-6">
             
             {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
@@ -101,7 +107,7 @@ export default function App() {
                </div>
 
                {/* Resim Konteynırı - web.png */}
-               <div className="w-full flex-1 rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5 flex items-center justify-center p-2">
+               <div className="w-full flex-1 rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5 flex items-center justify-center p-2 min-h-[140px]">
                  <img 
                    src="/web.png" 
                    alt="Web Tasarım" 
@@ -120,7 +126,7 @@ export default function App() {
               </div>
 
               {/* Resim Konteynırı - estetiktasarım.png */}
-              <div className="w-full flex-1 rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5 flex items-center justify-center p-2">
+              <div className="w-full flex-1 rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5 flex items-center justify-center p-2 min-h-[140px]">
                 <img 
                   src="/estetiktasarım.png" 
                   alt="Estetik Tasarım" 
@@ -142,14 +148,14 @@ export default function App() {
       {/* 4. BÖLÜM: İLETİŞİM FORMU */}
       <ContactSection />
 
-      <footer className="py-12 text-center text-slate-700 text-[10px] font-mono uppercase tracking-[0.8em] opacity-40">
+      <footer className="py-12 text-center text-slate-700 text-[9px] font-mono uppercase tracking-[0.8em] opacity-50">
         © 2026 ESASWEB // SİBER GÜVENLİK VE MODERN WEB MİMARİSİ
       </footer>
     </main>
   );
 }
 
-// --- ALT BİLEŞENLER (EKSİKSİZ VE TAM) ---
+// --- ALT BİLEŞENLER ---
 
 function ApproachSection() {
   return (
@@ -167,8 +173,8 @@ function ApproachSection() {
               <ShieldAlert size={28} />
             </div>
             <h3 className="text-2xl font-bold uppercase mb-4 tracking-tight">KALİTELİ ÇÖZÜMLER</h3>
-            <p className="text-slate-400 text-sm leading-relaxed font-light italic">
-              "Yüksek performanslı sistemleri, 'Security-by-Design' prensibiyle en gelişmiş dijital zırhlara kavuşturuyoruz."
+            <p className="text-slate-400 text-sm leading-relaxed font-light">
+              Yüksek performanslı sistemleri, 'Security-by-Design' prensibiyle en gelişmiş dijital zırhlara kavuşturuyoruz.
             </p>
           </motion.div>
         </div>
