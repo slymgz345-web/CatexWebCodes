@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Layout, Search, ShieldCheck, Zap, 
@@ -10,7 +11,7 @@ function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#050608]/85 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-6 h-24 flex justify-between items-center">
         
-        {/* LOGO BÖLÜMÜ - Süper Zoom Aktif */}
+        {/* LOGO BÖLÜMÜ */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -22,8 +23,7 @@ function Navbar() {
               alt="EsasWeb Logo" 
               className="h-full w-auto object-contain scale-[3.2] origin-left transition-transform duration-500 group-hover:scale-[3.5]"
             />
-            {/* Logo arkasındaki siber aura */}
-            <div className="absolute -inset-10 bg-cyan-400 blur-[80px] opacity-10 group-hover:opacity-30 transition-opacity pointer-events-none" />
+            <div className="absolute -inset-10 bg-cyan-400 blur-[60px] opacity-10 group-hover:opacity-30 transition-opacity pointer-events-none" />
           </div>
         </motion.div>
 
@@ -54,15 +54,32 @@ function Navbar() {
 
 // --- ANA APP BİLEŞENİ ---
 export default function App() {
+  // İletişim formundaki ilk input alanını tetiklemek için React Ref tanımlıyoruz
+  const nameInputRef = useRef<HTMLInputElement>(null);
+
+  // Akıcı kaydırma ve otomatik odaklanma fonksiyonu
+  const handleScrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      // Sayfayı akıcı bir şekilde aşağı kaydırır
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      
+      // Kaydırma animasyonu bittiğinde (yaklaşık 600ms) input alanına odaklanır
+      setTimeout(() => {
+        nameInputRef.current?.focus();
+      }, 600);
+    }
+  };
+
   return (
-    <main className="min-h-screen bg-[#050608] text-white selection:bg-cyan-500/30 font-sans overflow-x-hidden pt-24">
+    <main className="min-h-screen bg-[#050608] text-white selection:bg-cyan-500/30 font-sans overflow-x-hidden pt-24 scroll-smooth">
       <Navbar />
 
       {/* 1. BÖLÜM: HERO & BENTO GRID */}
       <section id="başlangiç" className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* Sol Büyük Kart */}
+          {/* Sol Devasa Kart */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -81,9 +98,12 @@ export default function App() {
                 İşletmenizi dijital dünyada öne çıkaran, siber disiplinle inşa edilmiş yüksek performanslı çözümler.
               </p>
               
-              {/* Tek Buton Mimarisi - Sadece "Başlayalım" odak noktası yapıldı */}
+              {/* BAŞLAYALIM BUTONU - onClick eylemi tanımlandı */}
               <div className="flex gap-4 pt-2">
-                <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition-all uppercase text-xs tracking-widest shadow-xl shadow-black/10">
+                <button 
+                  onClick={handleScrollToContact}
+                  className="bg-white text-black px-10 py-4 rounded-xl font-bold hover:bg-cyan-400 transition-all uppercase text-xs tracking-widest shadow-xl shadow-black/10 active:scale-95 duration-200"
+                >
                   Başlayalım
                 </button>
               </div>
@@ -161,8 +181,8 @@ export default function App() {
       {/* 3. BÖLÜM: UZMANLIK HİZMETLERİ */}
       <ExpertiseSection />
 
-      {/* 4. BÖLÜM: İLETİŞİM FORMU */}
-      <ContactSection />
+      {/* 4. BÖLÜM: İLETİŞİM FORMU - nameInputRef prop olarak paslandı */}
+      <ContactSection nameInputRef={nameInputRef} />
 
       <footer className="py-12 text-center text-slate-700 text-[9px] font-mono uppercase tracking-[0.8em] opacity-50">
         © 2026 ESASWEB // SİBER GÜVENLİK VE MODERN WEB MİMARİSİ
@@ -207,7 +227,6 @@ function ApproachSection() {
   );
 }
 
-// --- EXPERTİSE SECTİON ---
 function ExpertiseSection() {
   return (
     <section id="hizmetler" className="container mx-auto px-6 py-20 border-t border-white/5">
@@ -222,7 +241,7 @@ function ExpertiseSection() {
           </div>
         </div>
         <div className="lg:col-span-7 space-y-4">
-          <ServiceRow icon={<Layout size={22} />} title="Kullanıcı Odaklı Tasarım" desc="Müşteriye dönüşen, estetik ve işlevsel siber arayüzler." />
+          <ServiceRow icon={<Layout size={22} />} title="Kullanıcı Odaklı Tasarım" desc="Müşteriye dönüşen, estetik og işlevsel siber arayüzler." />
           <ServiceRow icon={<Search size={22} />} title="SEO Stratejileri" desc="Teknik optimizasyon ile arama motorlarında zirve." />
           <ServiceRow icon={<ShieldCheck size={22} />} title="Modern Web Geliştirme" desc="En yeni teknolojilerle zırhlandırılmış altyapılar." />
         </div>
@@ -231,8 +250,8 @@ function ExpertiseSection() {
   );
 }
 
-// --- CONTACT SECTİON ---
-function ContactSection() {
+// --- İLETİŞİM FORMU BİLEŞENİ - Ref ataması yapıldı ---
+function ContactSection({ nameInputRef }: any) {
   return (
     <section id="contact" className="container mx-auto px-6 py-24 border-t border-white/5">
       <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl shadow-cyan-950/10">
@@ -244,7 +263,8 @@ function ContactSection() {
           </div>
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
             <div className="grid md:grid-cols-2 gap-6">
-              <input type="text" placeholder="ADINIZ" className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors" />
+              {/* ref={nameInputRef} eklenerek otomatik odaklanma bağlandı */}
+              <input ref={nameInputRef} type="text" placeholder="ADINIZ" className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors" />
               <input type="email" placeholder="E-POSTA" className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors" />
             </div>
             <textarea rows={5} placeholder="MESAJINIZ" className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors"></textarea>
@@ -256,7 +276,6 @@ function ContactSection() {
   );
 }
 
-// --- METHOD CARD ---
 function MethodCard({ icon, title, desc }: any) {
   return (
     <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col md:flex-row md:items-center gap-8 group hover:bg-white/[0.04] transition-all flex-1">
@@ -269,7 +288,6 @@ function MethodCard({ icon, title, desc }: any) {
   );
 }
 
-// --- SERVİCE ROW ---
 function ServiceRow({ icon, title, desc }: any) {
   return (
     <motion.div whileHover={{ x: 10 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex items-start gap-8 group hover:bg-white/[0.04] transition-all cursor-default">
