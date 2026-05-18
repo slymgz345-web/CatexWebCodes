@@ -73,9 +73,8 @@ export default function App() {
 
             {/* Üst Kısım: Başlık ve Detaylar */}
             <div className="relative z-10 space-y-4">
-              {/* Bir kademe büyütüldü: text-sm yapıldı */}
               <span className="label-mono text-cyan-400 text-sm block tracking-[0.32em] uppercase font-bold">MODERN WEB TASARIMCISI & STRATEJİST</span>
-              <h1 className="text-4xl md:text-6xl font-black uppercase leading-[0.95] tracking-tighter">
+              <h1 className="text-4xl md:text-6xl font-black uppercase leading-[0.95] tracking-tighter mb-8 shadow-lg shadow-black/20">
                 HIZLI, MODERN <br /> VE <span className="text-gradient">ETKİLEYİCİ</span> <br /> WEB SİTELERİ.
               </h1>
               <p className="text-slate-400 max-w-md text-base md:text-lg leading-relaxed font-light">
@@ -115,7 +114,6 @@ export default function App() {
             {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
             <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 relative overflow-hidden group hover:bg-white/[0.04] transition-all flex flex-col justify-between">
                <div>
-                 {/* Bir kademe büyütüldü: text-xs yapıldı */}
                  <span className="label-mono text-xs text-slate-500 block mb-4 uppercase tracking-widest text-white/50">Hizmet Durumu</span>
                  <div className="flex items-center gap-3">
                    <div className="w-2.5 h-2.5 bg-cyan-400 rounded-full animate-pulse shadow-[0_0_10px_rgba(34,211,238,0.5)]" />
@@ -170,7 +168,7 @@ export default function App() {
   );
 }
 
-// --- ALT BİLEŞENLER ---
+// --- ALT BİLEŞENLER (AÇIKLAMALAR VE BAŞLIKLAR GÜCELLENDİ) ---
 function ApproachSection() {
   return (
     <section id="yaklaşimim" className="container mx-auto px-6 py-20 border-t border-white/5">
@@ -178,7 +176,6 @@ function ApproachSection() {
         
         <div className="lg:col-span-5 flex flex-col">
           <div>
-            {/* Bir kademe büyütüldü: text-xs yapıldı ve tracking dengelendi */}
             <span className="label-mono text-slate-500 text-xs tracking-[0.42em] mb-4 block uppercase font-bold text-white/40">ÇALIŞMA METODOLOJİM</span>
             <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8">
               PROFESYONEL <br /><span className="text-gradient">STANDARTLAR</span>.
@@ -190,7 +187,8 @@ function ApproachSection() {
               <ShieldAlert size={28} />
             </div>
             <h3 className="text-2xl font-bold uppercase mb-4 tracking-tight">KALİTELİ ÇÖZÜMLER</h3>
-            <p className="text-slate-400 text-sm leading-relaxed font-light">
+            {/* Sol açıklama yazısı text-sm'den text-base'e yükseltildi */}
+            <p className="text-slate-400 text-base leading-relaxed font-light">
               Yüksek performanslı sistemleri, 'Security-by-Design' prensibiyle en gelişmiş dijital zırhlara kavuşturuyoruz.
             </p>
           </motion.div>
@@ -199,7 +197,7 @@ function ApproachSection() {
         <div className="lg:col-span-7 space-y-6 flex flex-col justify-between">
           <MethodCard icon={<Network size={24} />} title="HIZ VE PERFORMANS" desc="Global erişime sahip, ışık hızında açılan siber yapılar." />
           <MethodCard icon={<ShieldCheck size={24} />} title="KALİTE GARANTİSİ" desc="Hatasız kod yapısı ve modern tasarımın milimetrik uyumu." />
-          <MethodCard icon={<Cpu size={24} />} title="ESNEK ALTYAPI" desc="Modüler ve değiştirilebilir mimariler." />
+          <MethodCard icon={<Cpu size={24} />} title="ESNEK ALTYAPI" desc="Modüler ve geliştirilebilir mimariler." />
         </div>
 
       </div>
@@ -212,7 +210,6 @@ function ExpertiseSection() {
     <section id="hizmetler" className="container mx-auto px-6 py-20 border-t border-white/5">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-5">
-          {/* Bir kademe büyütüldü: text-xs yapıldı */}
           <span className="label-mono text-slate-500 text-xs tracking-[0.35em] mb-4 block uppercase font-black opacity-40 text-white">UZMANLIK HİZMETLERİ</span>
           <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8">YÜKSEK- <br />PERFORMANS <br /><span className="text-gradient">ÇÖZÜMLERİ</span>.</h2>
           <div className="flex gap-4">
@@ -237,7 +234,6 @@ function ContactSection() {
       <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl shadow-cyan-950/10">
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div>
-            {/* Bir kademe büyütüldü: text-xs yapıldı ve block komutu ile yapışma engellendi */}
             <span className="label-mono text-slate-500 mb-6 block uppercase tracking-[0.5em] text-xs font-black">İletişime Geçin</span>
             <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-none">SİSTEME <br /><span className="text-gradient">KATILIN</span>.</h2>
             <p className="text-slate-400 text-lg max-w-sm font-light leading-relaxed">Projelerinizi siber disiplinle inşa etmek için terminalin başındayım.</p>
@@ -256,21 +252,32 @@ function ContactSection() {
   );
 }
 
+// --- METHOD CARD (BAŞLIK TEXT-XL, AÇIKLAMA TEXT-BASE SEVİYESİNE ÇEKİLDİ) ---
 function MethodCard({ icon, title, desc }: any) {
   return (
     <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col md:flex-row md:items-center gap-8 group hover:bg-white/[0.04] transition-all flex-1">
       <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform shrink-0">{icon}</div>
-      <div><h4 className="text-lg font-bold uppercase mb-2 tracking-widest">{title}</h4><p className="text-slate-500 text-sm font-light">{desc}</p></div>
+      <div>
+        {/* Başlık text-xl yapıldı */}
+        <h4 className="text-xl font-bold uppercase mb-2 tracking-widest">{title}</h4>
+        {/* Açıklama text-base yapıldı */}
+        <p className="text-slate-500 text-base font-light">{desc}</p>
+      </div>
     </motion.div>
   );
 }
 
-// --- SERVİCE ROW ---
+// --- SERVİCE ROW (UYUM İÇİN AYNI ORANDA OPTİMİZE EDİLDİ) ---
 function ServiceRow({ icon, title, desc }: any) {
   return (
     <motion.div whileHover={{ x: 10 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex items-start gap-8 group hover:bg-white/[0.04] transition-all cursor-default">
       <div className="w-14 h-14 bg-cyan-400/10 rounded-xl flex items-center justify-center text-cyan-400 group-hover:bg-cyan-400 group-hover:text-black transition-all duration-500">{icon}</div>
-      <div><h4 className="text-xl font-bold uppercase mb-2 group-hover:text-cyan-400 transition-colors">{title}</h4><p className="text-slate-500 text-sm leading-relaxed max-w-md font-light">{desc}</p></div>
+      <div>
+        {/* Başlık text-xl yapıldı */}
+        <h4 className="text-xl font-bold uppercase mb-2 group-hover:text-cyan-400 transition-colors">{title}</h4>
+        {/* Açıklama text-base yapıldı */}
+        <p className="text-slate-500 text-base leading-relaxed max-w-md font-light">{desc}</p>
+      </div>
     </motion.div>
   );
 }
