@@ -62,16 +62,16 @@ export default function App() {
       <section id="başlangiç" className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* Sol Büyük Kart - Sağ tarafın doğal oranına göre mükemmel esner */}
+          {/* Sol Büyük Kart - justify-center ve gap-y-10 ile boşluklar tamamen imha edildi */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-7 bg-white/[0.02] border border-white/10 rounded-[2rem] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group"
+            className="lg:col-span-7 bg-white/[0.02] border border-white/10 rounded-[2rem] p-8 md:p-12 flex flex-col justify-center gap-y-10 relative overflow-hidden group"
           >
             <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30 pointer-events-none" />
 
-            {/* Üst Kısım: Başlık Grubu */}
+            {/* Üst Kısım: Başlık ve Detaylar */}
             <div className="relative z-10 space-y-4">
               <span className="label-mono text-cyan-400 text-xs block tracking-[0.3em] uppercase font-bold">MODERN WEB TASARIMCISI & STRATEJİST</span>
               <h1 className="text-4xl md:text-6xl font-black uppercase leading-[0.95] tracking-tighter">
@@ -86,8 +86,8 @@ export default function App() {
               </div>
             </div>
             
-            {/* Alt Kısım: Terminal Paneli */}
-            <div className="relative z-10 mt-8 w-full bg-black/40 border border-white/5 rounded-xl font-mono text-xs text-slate-400 p-5 shadow-2xl backdrop-blur-md space-y-3 border-l-2 border-l-cyan-500/50">
+            {/* Alt Kısım: Terminal Paneli - Artık yazı grubuna sıkıca bağlı, asla aşağı kaçamaz */}
+            <div className="relative z-10 w-full bg-black/40 border border-white/5 rounded-xl font-mono text-xs text-slate-400 p-5 shadow-2xl backdrop-blur-md space-y-3 border-l-2 border-l-cyan-500/50">
               <div className="flex items-center justify-between border-b border-white/5 pb-2">
                 <div className="flex gap-1.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500/30" />
@@ -108,7 +108,7 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* Sağ Bento Kartları - Resimlerin Gerçek Oranlarında Parladığı Kolon */}
+          {/* Sağ Bento Kartları */}
           <div className="lg:col-span-5 flex flex-col gap-6">
             
             {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
@@ -121,7 +121,7 @@ export default function App() {
                  </div>
                </div>
 
-               {/* aspect-[16/10] ve object-top ile resim kırpılmadan ve ezilmeden cuk diye oturtuldu */}
+               {/* aspect-[16/10] ve object-top oranları */}
                <div className="w-full aspect-[16/10] rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5">
                  <img 
                    src="/web.png" 
@@ -140,7 +140,7 @@ export default function App() {
                 <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
               </div>
 
-              {/* aspect-[16/10] ve object-top mimarisi */}
+              {/* aspect-[16/10] ve object-top oranları */}
               <div className="w-full aspect-[16/10] rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5">
                 <img 
                   src="/estetiktasarım.png" 
@@ -171,6 +171,7 @@ export default function App() {
 }
 
 // --- ALT BİLEŞENLER ---
+
 function ApproachSection() {
   return (
     <section id="yaklaşimim" className="container mx-auto px-6 py-20 border-t border-white/5">
