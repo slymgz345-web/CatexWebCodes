@@ -22,6 +22,7 @@ function Navbar() {
               alt="EsasWeb Logo" 
               className="h-full w-auto object-contain scale-[3.2] origin-left transition-transform duration-500 group-hover:scale-[3.5]"
             />
+            {/* Logo arkasındaki siber aura */}
             <div className="absolute -inset-10 bg-cyan-400 blur-[80px] opacity-10 group-hover:opacity-30 transition-opacity pointer-events-none" />
           </div>
         </motion.div>
@@ -61,61 +62,55 @@ export default function App() {
       <section id="başlangiç" className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
-          {/* Sol Büyük Kart - justify-between yapısıyla üst ve alt pencereler dolduruldu */}
+          {/* Sol Büyük Kart - Yapı tamamen dolduruldu */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-7 bg-white/[0.02] border border-white/10 rounded-[2rem] p-8 md:p-12 flex flex-col justify-between min-h-[550px] relative overflow-hidden group"
+            className="lg:col-span-7 bg-white/[0.02] border border-white/10 rounded-[2rem] p-8 md:p-12 flex flex-col justify-between min-h-[580px] relative overflow-hidden group"
           >
-            <div className="absolute top-0 right-0 p-10 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none">
-              <Layout size={350} strokeWidth={0.5} />
-            </div>
-            
-            {/* [ÜST BOŞLUK ÇÖZÜMÜ] - Minimalist Siber Göstergeler Paneli */}
-            <div className="relative z-10 flex justify-between items-center border-b border-white/5 pb-6">
+            {/* Arka plan siber ızgara deseni */}
+            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.01)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.01)_1px,transparent_1px)] bg-[size:32px_32px] opacity-30 pointer-events-none" />
+
+            {/* Üst Kısım: Başlık Grubu */}
+            <div className="relative z-10 space-y-4">
               <span className="label-mono text-cyan-400 text-xs block tracking-[0.3em] uppercase font-bold">MODERN WEB TASARIMCISI & STRATEJİST</span>
-              <div className="hidden sm:flex items-center gap-4 font-mono text-[9px] text-slate-500 tracking-widest uppercase">
-                <span className="flex items-center gap-1.5">
-                  <span className="w-1 h-1 bg-cyan-400 rounded-full animate-ping" />
-                  SYS: ACTIVE
-                </span>
-                <span>PING: 14MS</span>
-              </div>
-            </div>
-            
-            {/* [ORTA ALAN] - Ana Başlık ve Açıklama */}
-            <div className="relative z-10 my-auto py-8">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase leading-[0.95] tracking-tighter mb-6 shadow-lg shadow-black/20">
+              <h1 className="text-4xl md:text-6xl font-black uppercase leading-[0.95] tracking-tighter">
                 HIZLI, MODERN <br /> VE <span className="text-gradient">ETKİLEYİCİ</span> <br /> WEB SİTELERİ.
               </h1>
               <p className="text-slate-400 max-w-md text-base md:text-lg leading-relaxed font-light">
                 İşletmenizi dijital dünyada öne çıkaran, siber disiplinle inşa edilmiş yüksek performanslı çözümler.
               </p>
-            </div>
-            
-            {/* [ALT BOŞLUK ÇÖZÜMÜ] - Butonlar ve Teknik Özellik Kartuşları */}
-            <div className="relative z-10 border-t border-white/5 pt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-              <div className="flex gap-4">
+              <div className="flex gap-4 pt-2">
                 <button className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition-all uppercase text-xs tracking-widest">Hizmetlerim</button>
                 <button className="bg-white/5 border border-white/10 px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all uppercase text-xs tracking-widest text-white font-mono">Hemen Başla</button>
               </div>
-              
-              {/* Sağ Alt Köşe: Tasarımı Dengeleyen Teknik Detay Blokları */}
-              <div className="flex gap-6 font-mono text-[9px] text-slate-500 uppercase tracking-widest">
-                <div className="border-l border-cyan-500/30 pl-3">
-                  <span className="block text-white font-bold">01 / SECURE</span>
-                  by design
+            </div>
+            
+            {/* [BOŞLUK ÇÖZÜMÜ] - Fütüristik Siber Güvenlik Terminali Modülü */}
+            <div className="relative z-10 mt-8 w-full bg-black/40 border border-white/5 rounded-xl font-mono text-xs text-slate-400 p-5 shadow-2xl backdrop-blur-md space-y-3 border-l-2 border-l-cyan-500/50">
+              <div className="flex items-center justify-between border-b border-white/5 pb-2">
+                <div className="flex gap-1.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/30" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/30" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-cyan-500/30" />
                 </div>
-                <div className="border-l border-cyan-500/30 pl-3">
-                  <span className="block text-white font-bold">02 / FAST</span>
-                  sub-1s load
-                </div>
+                <span className="text-[10px] text-slate-600 tracking-widest font-bold">ESASWEB_CORE_SECURITY.SH</span>
+              </div>
+              <div className="space-y-1.5 text-[11px] leading-relaxed">
+                <p className="text-cyan-400"><span className="text-slate-600">❯</span> npx esasweb-audit --secure</p>
+                <p className="text-emerald-400 font-bold">✔ 0 Vulnerabilities Detected (Security-by-Design)</p>
+                <p className="text-slate-500">→ Core Engine: React 19 + TypeScript + Tailwind v4</p>
+                <p className="text-purple-400"><span className="text-slate-600">❯</span> target --deploy=vercel_production</p>
+                <p className="text-white font-medium animate-pulse flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-ping" />
+                  ■ Build successful. Digital Armor Status: Fully Armed.
+                </p>
               </div>
             </div>
           </motion.div>
 
-          {/* Sağ Bento Kartları - Görsellerin Yer Aldığı Bölüm */}
+          {/* Sağ Bento Kartları */}
           <div className="lg:col-span-5 grid grid-rows-2 gap-6">
             
             {/* 1. KART: WEB TASARIM & GELİŞTİRME */}
@@ -152,7 +147,7 @@ export default function App() {
                 <img 
                   src="/estetiktasarım.png" 
                   alt="Estetik Tasarım" 
-                  className="max-w-full max-h-full object-contain opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                   className="max-w-full max-h-full object-contain opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                 />
               </div>
             </div>
@@ -202,7 +197,7 @@ function ApproachSection() {
         </div>
         <div className="lg:col-span-7 space-y-6">
           <MethodCard icon={<Network size={24} />} title="HIZ VE PERFORMANS" desc="Global erişime sahip, ışık hızında açılan siber yapılar." />
-          <MethodCard icon={<ShieldCheck size={24} />} title="KALİTE GARANTİSİ" desc="Hatasız kod yapısı ve modern tasarımın milimetrik uyumu." />
+          <MethodCard icon={<ShieldCheck size={24} />} title="KALİTE GARANTİSİ" desc="Hatasız kod yapısı og modern tasarımın milimetrik uyumu." />
           <MethodCard icon={<Cpu size={24} />} title="ESNEK ALTYAPI" desc="Modüler ve geliştirilebilir mimariler." />
         </div>
       </div>
