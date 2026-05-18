@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Layout, Search, ShieldCheck, Zap, 
@@ -11,7 +11,7 @@ function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#050608]/85 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-6 h-24 flex justify-between items-center">
         
-        {/* LOGO BÖLÜMÜ */}
+        {/* LOGO BÖLÜMÜ - CatexWeb Entegrasyonu */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -20,10 +20,11 @@ function Navbar() {
           <div className="relative h-12 w-48 flex items-center justify-start overflow-visible">
             <img 
               src="/logo.png" 
-              alt="EsasWeb Logo" 
+              alt="CatexWeb Logo" 
               className="h-full w-auto object-contain scale-[3.2] origin-left transition-transform duration-500 group-hover:scale-[3.5]"
             />
-            <div className="absolute -inset-10 bg-cyan-400 blur-[60px] opacity-10 group-hover:opacity-30 transition-opacity pointer-events-none" />
+            {/* Logo arkasındaki siber aura */}
+            <div className="absolute -inset-10 bg-cyan-400 blur-[80px] opacity-10 group-hover:opacity-30 transition-opacity pointer-events-none" />
           </div>
         </motion.div>
 
@@ -54,17 +55,12 @@ function Navbar() {
 
 // --- ANA APP BİLEŞENİ ---
 export default function App() {
-  // İletişim formundaki ilk input alanını tetiklemek için React Ref tanımlıyoruz
   const nameInputRef = useRef<HTMLInputElement>(null);
 
-  // Akıcı kaydırma ve otomatik odaklanma fonksiyonu
   const handleScrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
-      // Sayfayı akıcı bir şekilde aşağı kaydırır
       contactSection.scrollIntoView({ behavior: 'smooth' });
-      
-      // Kaydırma animasyonu bittiğinde (yaklaşık 600ms) input alanına odaklanır
       setTimeout(() => {
         nameInputRef.current?.focus();
       }, 600);
@@ -79,7 +75,7 @@ export default function App() {
       <section id="başlangiç" className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* Sol Devasa Kart */}
+          {/* Sol Büyük Kart */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +94,6 @@ export default function App() {
                 İşletmenizi dijital dünyada öne çıkaran, siber disiplinle inşa edilmiş yüksek performanslı çözümler.
               </p>
               
-              {/* BAŞLAYALIM BUTONU - onClick eylemi tanımlandı */}
               <div className="flex gap-4 pt-2">
                 <button 
                   onClick={handleScrollToContact}
@@ -109,7 +104,7 @@ export default function App() {
               </div>
             </div>
             
-            {/* Alt Kısım: Terminal Paneli */}
+            {/* Alt Kısım: Terminal Paneli - CatexWeb Çıktıları Entegre Edildi */}
             <div className="relative z-10 w-full bg-black/40 border border-white/5 rounded-xl font-mono text-xs text-slate-400 p-5 shadow-2xl backdrop-blur-md space-y-3 border-l-2 border-l-cyan-500/50">
               <div className="flex items-center justify-between border-b border-white/5 pb-2">
                 <div className="flex gap-1.5">
@@ -117,10 +112,10 @@ export default function App() {
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/30" />
                   <div className="w-2.5 h-2.5 rounded-full bg-cyan-500/30" />
                 </div>
-                <span className="text-[10px] text-slate-600 tracking-widest font-bold">ESASWEB_CORE_SECURITY.SH</span>
+                <span className="text-[10px] text-slate-600 tracking-widest font-bold">CATEXWEB_CORE_SECURITY.SH</span>
               </div>
               <div className="space-y-1.5 text-[11px] leading-relaxed">
-                <p className="text-cyan-400"><span className="text-slate-600">❯</span> npx esasweb-audit --secure</p>
+                <p className="text-cyan-400"><span className="text-slate-600">❯</span> npx catexweb-audit --secure</p>
                 <p className="text-emerald-400 font-bold">✔ 0 Vulnerabilities Detected (Security-by-Design)</p>
                 <p className="text-slate-500">→ Core Engine: React 19 + TypeScript + Tailwind</p>
                 <p className="text-white font-medium animate-pulse flex items-center gap-2">
@@ -181,11 +176,12 @@ export default function App() {
       {/* 3. BÖLÜM: UZMANLIK HİZMETLERİ */}
       <ExpertiseSection />
 
-      {/* 4. BÖLÜM: İLETİŞİM FORMU - nameInputRef prop olarak paslandı */}
+      {/* 4. BÖLÜM: İLETİŞİM FORMU */}
       <ContactSection nameInputRef={nameInputRef} />
 
+      {/* Footer Güncellendi */}
       <footer className="py-12 text-center text-slate-700 text-[9px] font-mono uppercase tracking-[0.8em] opacity-50">
-        © 2026 ESASWEB // SİBER GÜVENLİK VE MODERN WEB MİMARİSİ
+        © 2026 CATEXWEB // SİBER GÜVENLİK VE MODERN WEB MİMARİSİ
       </footer>
     </main>
   );
@@ -241,7 +237,7 @@ function ExpertiseSection() {
           </div>
         </div>
         <div className="lg:col-span-7 space-y-4">
-          <ServiceRow icon={<Layout size={22} />} title="Kullanıcı Odaklı Tasarım" desc="Müşteriye dönüşen, estetik og işlevsel siber arayüzler." />
+          <ServiceRow icon={<Layout size={22} />} title="Kullanıcı Odaklı Tasarım" desc="Müşteriye dönüşen, estetik ve işlevsel siber arayüzler." />
           <ServiceRow icon={<Search size={22} />} title="SEO Stratejileri" desc="Teknik optimizasyon ile arama motorlarında zirve." />
           <ServiceRow icon={<ShieldCheck size={22} />} title="Modern Web Geliştirme" desc="En yeni teknolojilerle zırhlandırılmış altyapılar." />
         </div>
@@ -250,8 +246,37 @@ function ExpertiseSection() {
   );
 }
 
-// --- İLETİŞİM FORMU BİLEŞENİ - Ref ataması yapıldı ---
 function ContactSection({ nameInputRef }: any) {
+  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('submitting');
+
+    const formData = new FormData(e.currentTarget);
+    
+    // ⚠️ web3forms Access Key buraya eklenecek
+    formData.append("access_key", "BURAYA_WEB3FORMS_KEYİNİ_YAZ");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('success');
+        e.currentTarget.reset();
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
   return (
     <section id="contact" className="container mx-auto px-6 py-24 border-t border-white/5">
       <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl shadow-cyan-950/10">
@@ -261,14 +286,49 @@ function ContactSection({ nameInputRef }: any) {
             <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-none">SİSTEME <br /><span className="text-gradient">KATILIN</span>.</h2>
             <p className="text-slate-400 text-lg max-w-sm font-light leading-relaxed">Projelerinizi siber disiplinle inşa etmek için terminalin başındayım.</p>
           </div>
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="grid md:grid-cols-2 gap-6">
-              {/* ref={nameInputRef} eklenerek otomatik odaklanma bağlandı */}
-              <input ref={nameInputRef} type="text" placeholder="ADINIZ" className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors" />
-              <input type="email" placeholder="E-POSTA" className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors" />
+              <input 
+                ref={nameInputRef} 
+                name="name"
+                type="text" 
+                placeholder="ADINIZ" 
+                required
+                className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors" 
+              />
+              <input 
+                name="email"
+                type="email" 
+                placeholder="E-POSTA" 
+                required
+                className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors" 
+              />
             </div>
-            <textarea rows={5} placeholder="MESAJINIZ" className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors"></textarea>
-            <button className="w-full bg-white text-black font-black py-5 rounded-2xl hover:bg-cyan-400 transition-all duration-500 uppercase tracking-[0.3em] text-xs flex items-center justify-center gap-4 group">SİNYALİ GÖNDER <Send size={18} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500" /></button>
+            <textarea 
+              name="message"
+              rows={5} 
+              placeholder="MESAJINIZ" 
+              required
+              className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors"
+            ></textarea>
+            
+            <button 
+              type="submit"
+              disabled={status === 'submitting'}
+              className={`w-full font-black py-5 rounded-2xl transition-all duration-500 uppercase tracking-[0.3em] text-xs flex items-center justify-center gap-4 group ${
+                status === 'success' ? 'bg-emerald-500 text-white' :
+                status === 'error' ? 'bg-red-500 text-white' :
+                'bg-white text-black hover:bg-cyan-400'
+              }`}
+            >
+              {status === 'idle' && (
+                <>SİNYALİ GÖNDER <Send size={18} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500" /></>
+              )}
+              {status === 'submitting' && 'BAĞLANTI KURULUYOR...'}
+              {status === 'success' && 'SİNYAL ALINDI ✓'}
+              {status === 'error' && 'HATA: SİNYAL KESİLDİ X'}
+            </button>
           </form>
         </div>
       </div>
@@ -288,6 +348,7 @@ function MethodCard({ icon, title, desc }: any) {
   );
 }
 
+// --- SERVİCE ROW ---
 function ServiceRow({ icon, title, desc }: any) {
   return (
     <motion.div whileHover={{ x: 10 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex items-start gap-8 group hover:bg-white/[0.04] transition-all cursor-default">
