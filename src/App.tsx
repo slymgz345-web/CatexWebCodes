@@ -10,7 +10,7 @@ function Navbar() {
     <nav className="fixed top-0 left-0 w-full z-50 bg-[#050608]/85 backdrop-blur-xl border-b border-white/5">
       <div className="container mx-auto px-6 h-24 flex justify-between items-center">
         
-        {/* LOGO BÖLÜMÜ */}
+        {/* LOGO BÖLÜMÜ - Süper Zoom Aktif */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -99,10 +99,10 @@ export default function App() {
                  </div>
                </div>
 
-               {/* Resim Alanı - webtasarım.png */}
+               {/* Resim Alanı - web.png olarak güncellendi */}
                <div className="w-full h-36 rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5">
                  <img 
-                   src="/webtasarım.png" 
+                   src="/web.png" 
                    alt="Web Tasarım" 
                    className="w-full h-full object-cover opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                  />
