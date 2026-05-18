@@ -136,7 +136,7 @@ export default function App() {
             <div className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col justify-between group hover:bg-white/[0.04] transition-all duration-500">
               <div>
                 <h3 className="font-bold text-xl uppercase mb-2 group-hover:text-cyan-400 transition-colors">Estetik Tasarım</h3>
-                <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
+                <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi og görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
               </div>
 
               <div className="w-full aspect-[16/10] rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5">
@@ -168,14 +168,12 @@ export default function App() {
   );
 }
 
-// --- ALT BİLEŞENLER (ORANTILANDI) ---
+// --- ALT BİLEŞENLER ---
 function ApproachSection() {
   return (
     <section id="yaklaşimim" className="container mx-auto px-6 py-20 border-t border-white/5">
-      {/* items-stretch ile iki kolonun yüksekliğini eşitledik */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
         
-        {/* Sol Taraf - flex flex-col ile kartı aşağı doğru büyütecek yapıya aldık */}
         <div className="lg:col-span-5 flex flex-col">
           <div>
             <span className="label-mono text-slate-500 text-[10px] tracking-[0.4em] mb-4 block uppercase font-bold text-white/40">ÇALIŞMA METODOLOJİM</span>
@@ -184,7 +182,6 @@ function ApproachSection() {
             </h2>
           </div>
           
-          {/* flex-1 ekleyerek bu kartın sağdaki 3 kartın hizasına kadar esnemesini sağladık */}
           <motion.div whileHover={{ y: -5 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-12 flex-1 flex flex-col justify-center">
             <div className="w-14 h-14 bg-cyan-400/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-6 shrink-0">
               <ShieldAlert size={28} />
@@ -196,11 +193,10 @@ function ApproachSection() {
           </motion.div>
         </div>
 
-        {/* Sağ Taraf - 3'lü Kart Yapısı */}
         <div className="lg:col-span-7 space-y-6 flex flex-col justify-between">
           <MethodCard icon={<Network size={24} />} title="HIZ VE PERFORMANS" desc="Global erişime sahip, ışık hızında açılan siber yapılar." />
           <MethodCard icon={<ShieldCheck size={24} />} title="KALİTE GARANTİSİ" desc="Hatasız kod yapısı ve modern tasarımın milimetrik uyumu." />
-          <MethodCard icon={<Cpu size={24} />} title="ESNEK ALTYAPI" desc="Modüler ve geliştirilebilir mimariler." />
+          <MethodCard icon={<Cpu size={24} />} title="ESNEK ALTYAPI" desc="Modüler ve değiştirilebilir mimariler." />
         </div>
 
       </div>
@@ -237,7 +233,8 @@ function ContactSection() {
       <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl shadow-cyan-950/10">
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div>
-            <span className="label-mono text-slate-500 mb-6 uppercase tracking-[0.5em] text-[10px] font-black">İletişime Geçin</span>
+            {/* block eklendi, böylece mb-6 margin değeri çalışacak ve İ harfinden yukarıya güvenli bir mesafeye kaçacak */}
+            <span className="label-mono text-slate-500 mb-6 block uppercase tracking-[0.5em] text-[10px] font-black">İletişime Geçin</span>
             <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-none">SİSTEME <br /><span className="text-gradient">KATILIN</span>.</h2>
             <p className="text-slate-400 text-lg max-w-sm font-light leading-relaxed">Projelerinizi siber disiplinle inşa etmek için terminalin başındayım.</p>
           </div>
