@@ -88,7 +88,7 @@ export default function App() {
             <div className="relative z-10 space-y-4">
               <span className="label-mono text-cyan-400 text-sm block tracking-[0.32em] uppercase font-bold">MODERN WEB TASARIMCISI & STRATEJİST</span>
               <h1 className="text-4xl md:text-6xl font-black uppercase leading-[0.95] tracking-tighter mb-8 shadow-lg shadow-black/20">
-                HIZLI, MODERN <br /> VE <span className="text-gradient">ETKİLEYİCİ</span> <br /> WEB SİTELERİ.
+                HIZLI, MODERN <br /> VE <span className="text-gradient">ETKİLEYİCİ</span> <br /> WEB SİTELERİ
               </h1>
               <p className="text-slate-400 max-w-md text-base md:text-lg leading-relaxed font-light">
                 İşletmenizi dijital dünyada öne çıkaran, siber disiplinle inşa edilmiş yüksek performanslı çözümler.
@@ -196,7 +196,7 @@ function ApproachSection() {
           <div>
             <span className="label-mono text-slate-500 text-xs tracking-[0.42em] mb-4 block uppercase font-bold text-white/40">ÇALIŞMA METODOLOJİM</span>
             <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8">
-              PROFESYONEL <br /><span className="text-gradient">STANDARTLAR</span>.
+              PROFESYONEL <br /><span className="text-gradient">STANDARTLAR</span>
             </h2>
           </div>
           
@@ -228,7 +228,7 @@ function ExpertiseSection() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-5">
           <span className="label-mono text-slate-500 text-xs tracking-[0.35em] mb-4 block uppercase font-black opacity-40 text-white">UZMANLIK HİZMETLERİ</span>
-          <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8">YÜKSEK- <br />PERFORMANS <br /><span className="text-gradient">ÇÖZÜMLERİ</span>.</h2>
+          <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8">YÜKSEK- <br />PERFORMANS <br /><span className="text-gradient">ÇÖZÜMLERİ</span></h2>
           <div className="flex gap-4">
             {[Layout, Search, ShieldCheck].map((Icon, i) => (
               <div key={i} className="w-12 h-12 bg-white/[0.02] border border-white/10 rounded-xl flex items-center justify-center text-slate-500 hover:text-cyan-400 transition-all cursor-pointer group"><Icon size={20} className="group-hover:scale-110 transition-transform" /></div>
@@ -283,7 +283,7 @@ function ContactSection({ nameInputRef }: any) {
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div>
             <span className="label-mono text-slate-500 mb-6 block uppercase tracking-[0.5em] text-xs font-black">İletişime Geçin</span>
-            <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-none">SİSTEME <br /><span className="text-gradient">KATILIN</span>.</h2>
+            <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-none">SİSTEME <br /><span className="text-gradient">KATILIN</span></h2>
             <p className="text-slate-400 text-lg max-w-sm font-light leading-relaxed">Projelerinizi siber disiplinle inşa etmek için terminalin başındayım.</p>
           </div>
           
