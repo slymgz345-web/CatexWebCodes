@@ -62,7 +62,7 @@ export default function App() {
       <section id="başlangiç" className="container mx-auto px-6 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           
-          {/* Sol Büyük Kart - justify-center ve gap-y-10 ile boşluklar tamamen imha edildi */}
+          {/* Sol Büyük Kart */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -86,7 +86,7 @@ export default function App() {
               </div>
             </div>
             
-            {/* Alt Kısım: Terminal Paneli - Artık yazı grubuna sıkıca bağlı, asla aşağı kaçamaz */}
+            {/* Alt Kısım: Terminal Paneli */}
             <div className="relative z-10 w-full bg-black/40 border border-white/5 rounded-xl font-mono text-xs text-slate-400 p-5 shadow-2xl backdrop-blur-md space-y-3 border-l-2 border-l-cyan-500/50">
               <div className="flex items-center justify-between border-b border-white/5 pb-2">
                 <div className="flex gap-1.5">
@@ -121,7 +121,6 @@ export default function App() {
                  </div>
                </div>
 
-               {/* aspect-[16/10] ve object-top oranları */}
                <div className="w-full aspect-[16/10] rounded-xl overflow-hidden my-4 bg-white/5 border border-white/5">
                  <img 
                    src="/web.png" 
@@ -140,7 +139,6 @@ export default function App() {
                 <p className="text-slate-400 text-sm leading-relaxed">Kullanıcı deneyimi ve görsel mükemmellik odaklı siber standartlarda arayüzler.</p>
               </div>
 
-              {/* aspect-[16/10] ve object-top oranları */}
               <div className="w-full aspect-[16/10] rounded-xl overflow-hidden mt-4 bg-white/5 border border-white/5">
                 <img 
                   src="/estetiktasarım.png" 
@@ -170,21 +168,25 @@ export default function App() {
   );
 }
 
-// --- ALT BİLEŞENLER ---
-
+// --- ALT BİLEŞENLER (ORANTILANDI) ---
 function ApproachSection() {
   return (
     <section id="yaklaşimim" className="container mx-auto px-6 py-20 border-t border-white/5">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        <div className="lg:col-span-5 space-y-12">
+      {/* items-stretch ile iki kolonun yüksekliğini eşitledik */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+        
+        {/* Sol Taraf - flex flex-col ile kartı aşağı doğru büyütecek yapıya aldık */}
+        <div className="lg:col-span-5 flex flex-col">
           <div>
             <span className="label-mono text-slate-500 text-[10px] tracking-[0.4em] mb-4 block uppercase font-bold text-white/40">ÇALIŞMA METODOLOJİM</span>
-            <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter">
+            <h2 className="text-5xl md:text-7xl font-black uppercase leading-[0.9] tracking-tighter mb-8">
               PROFESYONEL <br /><span className="text-gradient">STANDARTLAR</span>.
             </h2>
           </div>
-          <motion.div whileHover={{ y: -5 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-12">
-            <div className="w-14 h-14 bg-cyan-400/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-8">
+          
+          {/* flex-1 ekleyerek bu kartın sağdaki 3 kartın hizasına kadar esnemesini sağladık */}
+          <motion.div whileHover={{ y: -5 }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 md:p-12 flex-1 flex flex-col justify-center">
+            <div className="w-14 h-14 bg-cyan-400/10 rounded-2xl flex items-center justify-center text-cyan-400 mb-6 shrink-0">
               <ShieldAlert size={28} />
             </div>
             <h3 className="text-2xl font-bold uppercase mb-4 tracking-tight">KALİTELİ ÇÖZÜMLER</h3>
@@ -193,11 +195,14 @@ function ApproachSection() {
             </p>
           </motion.div>
         </div>
-        <div className="lg:col-span-7 space-y-6">
+
+        {/* Sağ Taraf - 3'lü Kart Yapısı */}
+        <div className="lg:col-span-7 space-y-6 flex flex-col justify-between">
           <MethodCard icon={<Network size={24} />} title="HIZ VE PERFORMANS" desc="Global erişime sahip, ışık hızında açılan siber yapılar." />
           <MethodCard icon={<ShieldCheck size={24} />} title="KALİTE GARANTİSİ" desc="Hatasız kod yapısı ve modern tasarımın milimetrik uyumu." />
           <MethodCard icon={<Cpu size={24} />} title="ESNEK ALTYAPI" desc="Modüler ve geliştirilebilir mimariler." />
         </div>
+
       </div>
     </section>
   );
@@ -252,8 +257,8 @@ function ContactSection() {
 
 function MethodCard({ icon, title, desc }: any) {
   return (
-    <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col md:flex-row md:items-center gap-8 group hover:bg-white/[0.04] transition-all">
-      <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">{icon}</div>
+    <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="bg-white/[0.02] border border-white/10 rounded-3xl p-8 flex flex-col md:flex-row md:items-center gap-8 group hover:bg-white/[0.04] transition-all flex-1">
+      <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform shrink-0">{icon}</div>
       <div><h4 className="text-lg font-bold uppercase mb-2 tracking-widest">{title}</h4><p className="text-slate-500 text-sm font-light">{desc}</p></div>
     </motion.div>
   );
