@@ -250,34 +250,34 @@ function ContactSection({ nameInputRef }: any) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  setStatus('submitting');
+    e.preventDefault();
+    setStatus('submitting');
 
-  // TypeScript'e bu elementin bir HTMLFormElement olduğunu kesin olarak söylüyoruz (Type Casting):
-  const formElement = e.currentTarget as HTMLFormElement; 
-  const formData = new FormData(formElement);
+    // TypeScript için güvenli referans tanımı
+    const formElement = e.currentTarget as HTMLFormElement;
+    const formData = new FormData(formElement);
 
-  // 🔑 Güvenli Veri Hattı Anahtarı başarıyla tanımlandı
-  formData.append("access_key", "8f40230d-ff4d-4527-9be7-902bbd100c49");
+    // 🔑 Güvenli Veri Hattı Anahtarı
+    formData.append("access_key", "8f40230d-ff4d-4527-9be7-902bbd100c49");
 
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (data.success) {
-      setStatus('success');
-      formElement.reset(); // Artık TypeScript hata veremez, tipi belli!
-    } else {
+      if (data.success) {
+        setStatus('success');
+        formElement.reset(); // Formu güvenle sıfırlıyoruz
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
       setStatus('error');
     }
-  } catch (error) {
-    setStatus('error');
-  }
-};
+  };
 
       const data = await response.json();
 
