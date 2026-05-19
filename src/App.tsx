@@ -41,13 +41,7 @@ function Navbar() {
           ))}
         </div>
 
-        {/* GÜVENLİ BAĞLANTI BUTONU */}
-        <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-          <button className="bg-white/5 border border-white/10 px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest hover:bg-cyan-400 hover:text-black transition-all duration-500 flex items-center gap-3 group text-white">
-            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse group-hover:bg-black" />
-            GÜVENLİ BAĞLANTI
-          </button>
-        </motion.div>
+       
       </div>
     </nav>
   );
