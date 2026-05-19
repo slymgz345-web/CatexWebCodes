@@ -253,8 +253,8 @@ function ContactSection({ nameInputRef }: any) {
   e.preventDefault();
   setStatus('submitting');
 
-  // Form referansını asenkron işlemden önce güvenli bir siber hatta alıyoruz:
-  const formElement = e.currentTarget; 
+  // TypeScript'e bu elementin bir HTMLFormElement olduğunu kesin olarak söylüyoruz (Type Casting):
+  const formElement = e.currentTarget as HTMLFormElement; 
   const formData = new FormData(formElement);
 
   // 🔑 Güvenli Veri Hattı Anahtarı başarıyla tanımlandı
@@ -270,7 +270,7 @@ function ContactSection({ nameInputRef }: any) {
 
     if (data.success) {
       setStatus('success');
-      formElement.reset(); // e.currentTarget yerine artık güvenli değişkeni sıfırlıyoruz
+      formElement.reset(); // Artık TypeScript hata veremez, tipi belli!
     } else {
       setStatus('error');
     }
