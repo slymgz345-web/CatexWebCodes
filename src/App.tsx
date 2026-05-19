@@ -253,11 +253,11 @@ function ContactSection({ nameInputRef }: any) {
     e.preventDefault();
     setStatus('submitting');
 
-    // TypeScript için güvenli referans tanımı
+    // TypeScript için form elementini asenkron süreç öncesi güvenli hatta alıyoruz
     const formElement = e.currentTarget as HTMLFormElement;
     const formData = new FormData(formElement);
 
-    // 🔑 Güvenli Veri Hattı Anahtarı
+    // 🔑 Güvenli Veri Hattı Anahtarı başarıyla tanımlandı
     formData.append("access_key", "8f40230d-ff4d-4527-9be7-902bbd100c49");
 
     try {
@@ -270,20 +270,7 @@ function ContactSection({ nameInputRef }: any) {
 
       if (data.success) {
         setStatus('success');
-        formElement.reset(); // Formu güvenle sıfırlıyoruz
-      } else {
-        setStatus('error');
-      }
-    } catch (error) {
-      setStatus('error');
-    }
-  };
-
-      const data = await response.json();
-
-      if (data.success) {
-        setStatus('success');
-        e.currentTarget.reset(); // Sinyal başarıyla ulaştığında formu temizle
+        formElement.reset(); // Sinyal başarıyla ulaştığında formu temizle
       } else {
         setStatus('error');
       }
@@ -297,48 +284,51 @@ function ContactSection({ nameInputRef }: any) {
       <div className="bg-white/[0.02] border border-white/10 rounded-[3rem] p-10 md:p-20 relative overflow-hidden shadow-2xl shadow-cyan-950/10">
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
           <div>
-            <span className="label-mono text-slate-500 mb-6 block uppercase tracking-[0.5em] text-xs font-black">İletişime Geçin</span>
-            <h2 className="text-5xl md:text-8xl font-black text-white uppercase tracking-tighter mb-8 leading-none">SİSTEME <br /><span className="text-gradient">KATILIN</span></h2>
-            <p className="text-slate-400 text-lg max-w-sm font-light leading-relaxed">Projelerinizi siber disiplinle inşa etmek için terminalin başındayım.</p>
+            <span className="label-mono-text slate-500 mb-6 block uppercase tracking-[0.5rem] text-xs font-light">İletişime Geçin</span>
+            <h2 className="text-5xl md:text-7xl font-black uppercase mb-8 tracking-tighter leading-none">
+              SİSTEME <br />
+              <span className="text-gradient bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">KATILIN</span>
+            </h2>
+            <p className="text-slate-400 text-lg font-light leading-relaxed max-w-md">
+              Projelerinizi siber disiplinle inşa etmek için terminalin başındayım.
+            </p>
           </div>
-          
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="grid md:grid-cols-2 gap-6">
-              <input 
-                ref={nameInputRef} 
-                name="name"
-                type="text" 
-                placeholder="ADINIZ" 
-                required
-                className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors" 
-              />
-              <input 
-                name="email"
-                type="email" 
-                placeholder="E-POSTA" 
-                required
-                className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors" 
-              />
-            </div>
+
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4 justify-center">
+            <input 
+              ref={nameInputRef}
+              type="text" 
+              name="name" 
+              placeholder="İsim veya Firma" 
+              required 
+              className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+            />
+            <input 
+              type="email" 
+              name="email" 
+              placeholder="E-Posta Adresi" 
+              required 
+              className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+            />
             <textarea 
-              name="message"
+              name="message" 
+              placeholder="Proje Detayları veya Mesajınız" 
               rows={5} 
-              placeholder="MESAJINIZ" 
-              required
-              className="w-full bg-white/[0.03] border border-white/10 rounded-xl text-sm p-5 text-white outline-none focus:border-cyan-400 transition-colors"
+              required 
+              className="bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
             ></textarea>
-            
-            <button 
+
+            <button
               type="submit"
               disabled={status === 'submitting'}
-              className={`w-full font-black py-5 rounded-2xl transition-all duration-500 uppercase tracking-[0.3em] text-xs flex items-center justify-center gap-4 group ${
-                status === 'success' ? 'bg-emerald-500 text-white' :
-                status === 'error' ? 'bg-red-500 text-white' :
+              className={`w-full font-black py-5 rounded-2xl transition-all duration-500 uppercase tracking-[0.3rem] text-xs flex items-center justify-center gap-4 group ${
+                status === 'success' ? 'bg-emerald-500 text-white' : 
+                status === 'error' ? 'bg-red-500 text-white' : 
                 'bg-white text-black hover:bg-cyan-400'
               }`}
             >
               {status === 'idle' && (
-                <>SİNYALİ GÖNDER <Send size={18} className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500" /></>
+                <>SİNYALİ GÖNDER <span className="group-hover:translate-x-2 group-hover:-translate-y-2 transition-transform duration-500">➔</span></>
               )}
               {status === 'submitting' && 'BAĞLANTI KURULUYOR...'}
               {status === 'success' && 'SİNYAL ALINDI ✓'}
