@@ -250,19 +250,34 @@ function ContactSection({ nameInputRef }: any) {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus('submitting');
+  e.preventDefault();
+  setStatus('submitting');
 
-    const formData = new FormData(e.currentTarget);
-    
-    // 🔑 Güvenli Veri Hattı Anahtarı başarıyla tanımlandı
-    formData.append("access_key", "8f40230d-ff4d-4527-9be7-902bbd100c49");
+  // Form referansını asenkron işlemden önce güvenli bir siber hatta alıyoruz:
+  const formElement = e.currentTarget; 
+  const formData = new FormData(formElement);
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData
-      });
+  // 🔑 Güvenli Veri Hattı Anahtarı başarıyla tanımlandı
+  formData.append("access_key", "8f40230d-ff4d-4527-9be7-902bbd100c49");
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setStatus('success');
+      formElement.reset(); // e.currentTarget yerine artık güvenli değişkeni sıfırlıyoruz
+    } else {
+      setStatus('error');
+    }
+  } catch (error) {
+    setStatus('error');
+  }
+};
 
       const data = await response.json();
 
